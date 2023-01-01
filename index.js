@@ -10,14 +10,15 @@ const app = express();
 
 app.use(cors());
 app.use(express.json());
-let port = 5000;
 
 require("./DL/db").connect()
 
 app.use("/api/product", require("./Routes/productRoute"))
+app.use("/api/user", require("./Routes/userRoute"))
 
 
 // require("./ROUTERS/userRouter")
+let port = process.env.PORT || 5000;
 
-app.listen(process.env.PORT || port, () =>
-    console.log(`Server is running at Port ${process.env.PORT || port}`));
+app.listen(port, () =>
+    console.log(`Server is running at Port ${port}`));

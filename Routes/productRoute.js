@@ -4,8 +4,13 @@ const productlogic = require("../BL/productLogic")
 
 
 router.get("/", async (req, res) => {
-    const AllProducts = await productlogic.getAllProducts()
-    res.send(AllProducts)
+    try {
+
+        const AllProducts = await productlogic.getAllProducts()
+        res.send(AllProducts)
+    } catch (error) {
+        res.status(401).send({ error })
+    }
 })
 
 

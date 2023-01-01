@@ -1,5 +1,5 @@
 const productDl = require("../DL/controller/productController")
-require("../DL/db").connect();
+// require("../DL/db").connect();
 
 
 async function createProduct(data) {
